@@ -1,9 +1,10 @@
 # yjs.py
 # -*- coding: utf-8 -*-
 import ctypes
+import json
+import os
 from ctypes import wintypes
-from src.utils.paths import assets_root
-from src.utils.config import Config
+from src.utils.paths import assets_root, project_root
 
 # ================== 键码映射 ==================
 code_dict = {
@@ -22,6 +23,42 @@ code_dict = {
 _yjs_pool = {}  # port -> YJS
 
 
+def _load_pid_vid_from_config(port: int) -> tuple:
+    """
+    从 config/config.ini 加载 PID/VID 配置
+    
+    Args:
+        port: VNC端口号
+        
+    Returns:
+        (VID, PID) 元组，解析失败返回 None
+    """
+    import configparser
+    
+    config_file = os.path.join(project_root(), "config", "config.ini")
+    
+    if not os.path.exists(config_file):
+        print(f"[YJS] 配置文件不存在: {config_file}")
+        return None
+    
+    try:
+        cfg = configparser.ConfigParser()
+        cfg.read(config_file, encoding="utf-8")
+        
+        port_str = str(port)
+        if cfg.has_option("yjs", port_str):
+            raw = cfg.get("yjs", port_str)
+            parts = raw.split(",")
+            if len(parts) == 2:
+                vid = int(parts[0].strip(), 16)
+                pid = int(parts[1].strip(), 16)
+                return (vid, pid)
+    except Exception as e:
+        print(f"[YJS] 加载PID/VID配置失败: {e}")
+    
+    return None
+
+
 def get_yjs(port: int):
     """
     按端口获取 YJS（一个端口一个实例）
@@ -38,21 +75,18 @@ class YJS:
     def from_port(cls, port: int):
         """
         根据端口 → 查配置 → 创建 YJS
+        
+        从 task_chain.json 读取 pid_vid 字段
         """
-        cfg = Config()
-
-        # 例子：
-        # [yjs]
-        # 102 = 0xC216,0x0102
-        # 103 = 0xC216,0x0103
-        raw = cfg.get("yjs", str(port))
-        if not raw:
-            raise RuntimeError(f"未配置端口 {port} 的 VID/PID")
-
-        vid_hex, pid_hex = raw.split(",")
-        VID = int(vid_hex, 16)
-        PID = int(pid_hex, 16)
-
+        # 从 task_chain.json 读取
+        result = _load_pid_vid_from_config(port)
+        
+        if not result:
+            raise RuntimeError(f"未配置端口 {port} 的 VID/PID，请检查 task_chain.json")
+        
+        VID, PID = result
+        print(f"[YJS] 从 task_chain.json 加载: 端口={port}, VID=0x{VID:04x}, PID=0x{PID:04x}")
+        
         return cls(1024, 768, VID=VID, PID=PID)
 
     def __init__(self, w, h, VID, PID, move_flag=0, KeyDelay=None):

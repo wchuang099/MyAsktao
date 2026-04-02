@@ -1,0 +1,34 @@
+{
+  "chain_list": [
+    "shimen"
+  ],
+  "presets": {
+    "师门→帮派→副本→叛逆": [
+      "shimen",
+      "bangpai",
+      "fuben",
+      "pani"
+    ],
+    "全任务流程": [
+      "shimen",
+      "bangpai",
+      "fuben",
+      "pani"
+    ],
+    "仅师门任务": [
+      "shimen"
+    ],
+    "仅帮派任务": [
+      "bangpai"
+    ],
+    "仅叛逆任务": [
+      "pani"
+    ]
+  },
+  "102": {
+    "pid_vid": "0xC216,0x0102",
+    "task_flow": [
+      "pani"
+    ]
+  }
+}

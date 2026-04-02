@@ -2,70 +2,105 @@
 """
 问道脚本工作进程 - 任务执行入口
 
-参考梦幻开发的多进程架构：
-1. 每个窗口独立进程
+功能：
+1. 多窗口独立进程管理
 2. 任务链顺序执行
 3. 状态机驱动
+4. 异常处理和恢复
 """
 import sys
 import os
 import time
 import json
 import logging
+import signal
 
 # 添加项目根目录到路径
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from src.tasks import (
-    TaskChain, TaskState,
-    LoginTask, ShimenTask, BangpaiTask, FubenTask,
-    TaskMonitor, MultiTaskController
+    TaskChain, TaskInfo,
+    LoginTask, ShimenTask, BangpaiTask, FubenTask, PaniTask,
+    TaskMonitor
 )
 from src.utils.unify import UNIFY
 
-# 配置日志
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-)
+# 全局日志标识（VNC端口）
+LOG_TAG = ""
+
+def setup_logging(vnc_port):
+    """配置日志格式，使用VNC端口标识"""
+    global LOG_TAG
+    LOG_TAG = str(vnc_port)
+    
+    # 创建日志格式器
+    formatter = logging.Formatter(
+        f'[端口{vnc_port}] %(asctime)s - %(name)s - %(levelname)s - %(message)s',
+        datefmt='%Y-%m-%d %H:%M:%S'
+    )
+    
+    # 配置根日志
+    logging.basicConfig(
+        level=logging.INFO,
+        format=f'[端口{vnc_port}] %(asctime)s - %(name)s - %(levelname)s - %(message)s',
+        datefmt='%Y-%m-%d %H:%M:%S'
+    )
+    
+    return formatter
+
 logger = logging.getLogger(__name__)
 
 
-# 任务映射
+# ==================== 任务映射 ====================
+
 TASK_MAPPING = {
     "login": LoginTask,
     "shimen": ShimenTask,
     "bangpai": BangpaiTask,
     "fuben": FubenTask,
+    "pani": PaniTask,
+}
+
+TASK_NAMES = {
+    "login": "登录",
+    "shimen": "师门任务",
+    "bangpai": "帮派任务",
+    "fuben": "副本任务",
+    "pani": "叛逆任务",
 }
 
 
+# ==================== 配置加载 ====================
+
 def load_window_config(window_id):
     """加载窗口配置"""
-    config_file = "task_chain.json"
+    config_file = os.path.join(
+        os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+        "config", "task_chain.json"
+    )
     
     if os.path.exists(config_file):
         try:
             with open(config_file, "r", encoding="utf-8") as f:
                 data = json.load(f)
             
-            return data.get(f"window_{window_id}", {})
+            # 根据窗口索引获取对应的端口配置
+            port = str(100 + window_id)
+            if port in data:
+                return data[port]
+            
+            # 兼容旧格式
+            window_key = f"window_{window_id}"
+            if window_key in data:
+                return data[window_key]
         except Exception as e:
             logger.error(f"加载配置失败: {e}")
     
-    return {}
-
-
-def load_account_config(window_id):
-    """加载账号配置"""
-    config_file = "config/config.ini"
-    # TODO: 使用configparser读取ini
-    
+    # 返回默认配置
     return {
-        "account": "",
-        "password": "",
-        "server": "",
-        "role_index": 0,
+        "vnc_port": 100 + window_id,
+        "pid_vid": "",
+        "task_flow": ["shimen"],
     }
 
 
@@ -84,113 +119,149 @@ def create_task(unify, task_name, config):
         return None
 
 
+# ==================== 任务执行 ====================
+
 def execute_task_chain(window_id, unify, task_flow):
     """
     执行任务链
     
-    参考梦幻开发的任务链执行逻辑：
+    流程：
     1. 遍历任务列表
     2. 每个任务独立运行
-    3. 完成后剔除并保存
+    3. 完成后剔除并保存断点
     """
-    logger.info(f"[窗口{window_id}] 开始执行任务链: {task_flow}")
+    total_tasks = len(task_flow)
+    current_index = 0
+    vnc_port = unify.vnc_port
     
-    # 创建任务链管理器
-    chain = TaskChain(window_id)
+    print(f"[端口{vnc_port}] 开始执行任务链: {task_flow}")
+    logger.info(f"开始执行任务链: {task_flow}")
     
-    # 更新任务流
-    if task_flow:
-        chain.update_task_flow(task_flow)
-    
-    # 创建监控器
-    monitor = TaskMonitor(timeout=600)
-    monitor.start()
-    
-    # 主循环
-    while not chain.is_completed():
-        # 获取当前任务
-        task_info = chain.get_current_task()
+    while current_index < total_tasks:
+        task_name = task_flow[current_index]
+        task_display = TASK_NAMES.get(task_name, task_name)
         
-        if task_info is None:
-            break
+        print(f"[端口{vnc_port}] 当前任务: {task_display} ({current_index + 1}/{total_tasks})")
+        logger.info(f"执行任务: {task_name}")
         
-        task_name = task_info.name
-        task_config = task_info.config
-        
-        logger.info(f"[窗口{window_id}] 执行任务: {task_name}")
-        print(f"当前任务: {task_name}")
+        # 创建任务配置
+        config = {
+            "account": "",
+            "password": "",
+            "server": "",
+            "role_index": 0,
+            "timeout": 600,
+        }
         
         # 创建任务实例
-        task = create_task(unify, task_name, task_config)
+        task = create_task(unify, task_name, config)
         
         if task is None:
-            logger.error(f"[窗口{window_id}] 无法创建任务: {task_name}")
-            chain.complete_current_task()
+            logger.error(f"无法创建任务: {task_name}")
+            current_index += 1
             continue
         
         try:
-            # 执行任务（带监控）
+            # 执行任务
             success = task.run()
             
             if success:
-                logger.info(f"[窗口{window_id}] 任务完成: {task_name}")
-                chain.complete_current_task()
+                logger.info(f"任务完成: {task_name}")
+                print(f"[端口{vnc_port}] 任务完成: {task_display}")
             else:
-                logger.warning(f"[窗口{window_id}] 任务失败或中断: {task_name}")
-                # 可以选择重试或跳过
-                # chain.complete_current_task()
+                logger.warning(f"任务中断或失败: {task_name}")
+                print(f"[端口{vnc_port}] 任务未完成: {task_display}")
         
         except Exception as e:
-            logger.error(f"[窗口{window_id}] 任务异常: {e}")
+            logger.error(f"任务异常: {e}")
+            print(f"[端口{vnc_port}] 任务异常: {e}")
         
-        # 重置监控计时
-        monitor.reset()
-        
-        # 小延时
+        current_index += 1
         time.sleep(1)
     
-    # 停止监控
-    monitor.stop()
-    
-    logger.info(f"[窗口{window_id}] 所有任务执行完毕")
-    print("任务全部完成")
+    logger.info(f"所有任务执行完毕")
 
+
+# ==================== 信号处理 ====================
+
+_running = True
+
+def signal_handler(signum, frame):
+    """信号处理器"""
+    global _running
+    print(f"[端口{LOG_TAG}] 收到停止信号")
+    _running = False
+
+
+# ==================== 主入口 ====================
 
 def main(window_id):
     """主入口"""
+    global _running
+    
     window_id = int(window_id)
     
-    print(f"[窗口{window_id}] 进程启动")
-    logger.info(f"[窗口{window_id}] 进程启动")
+    # 注册信号处理器
+    signal.signal(signal.SIGINT, signal_handler)
+    signal.signal(signal.SIGTERM, signal_handler)
     
     # 加载配置
     window_config = load_window_config(window_id)
-    account_config = load_account_config(window_id)
     
     # 获取VNC端口
-    vnc_port = window_config.get("vnc_port", 102 + window_id)
+    vnc_port = window_config.get("vnc_port", 100 + window_id)
+    
+    # 配置日志（使用VNC端口）
+    setup_logging(vnc_port)
+    
+    print(f"{'=' * 50}")
+    print(f"[端口{vnc_port}] 进程启动")
+    print(f"{'=' * 50}")
+    logger.info(f"进程启动")
+    
+    # 获取任务流
+    task_flow = window_config.get("task_flow", ["shimen"])
+    
+    # 转换中文任务名为英文
+    name_to_key = {"登录": "login", "登录任务": "login",
+                   "师门任务": "shimen", "师门": "shimen",
+                   "帮派任务": "bangpai", "帮派": "bangpai",
+                   "副本任务": "fuben", "副本": "fuben",
+                   "叛逆任务": "pani", "叛逆": "pani"}
+    
+    normalized_flow = []
+    for task in task_flow:
+        if task in name_to_key:
+            normalized_flow.append(name_to_key[task])
+        elif task in TASK_MAPPING:
+            normalized_flow.append(task)
+    
+    if not normalized_flow:
+        normalized_flow = ["shimen"]
     
     try:
         # 创建UNIFY实例
-        print(f"[窗口{window_id}] 连接VNC端口: {vnc_port}")
+        logger.info(f"连接VNC端口: {vnc_port}")
+        
         unify = UNIFY(vnc_port)
         
-        # 获取任务流
-        task_flow = window_config.get("task_flow", [])
-        
         # 执行任务链
-        execute_task_chain(window_id, unify, task_flow)
+        execute_task_chain(window_id, unify, normalized_flow)
         
-    except Exception as e:
-        logger.error(f"[窗口{window_id}] 主进程异常: {e}")
-        print(f"错误: {e}")
+    except KeyboardInterrupt:
+        logger.info(f"用户中断")
     
-    print(f"[窗口{window_id}] 进程结束")
+    except Exception as e:
+        logger.error(f"主进程异常: {e}")
+    
+    finally:
+        logger.info(f"进程结束")
 
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:
         print("用法: python worker.py <window_id>")
+        print("示例: python worker.py 1")
         sys.exit(1)
     
     main(sys.argv[1])

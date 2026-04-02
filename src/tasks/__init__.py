@@ -8,7 +8,9 @@ from .login import LoginTask
 from .shimen import ShimenTask
 from .bangpai import BangpaiTask
 from .fuben import FubenTask
+from .pani import PaniTask, PaniState
 from .monitor import TaskMonitor, ReconnectionHandler, MultiTaskController
+from .autopath import Pathfinder, register_common_paths
 
 __all__ = [
     "BaseTask", "TaskState", 
@@ -17,5 +19,7 @@ __all__ = [
     "ShimenTask", 
     "BangpaiTask", 
     "FubenTask",
-    "TaskMonitor", "ReconnectionHandler", "MultiTaskController"
+    "PaniTask", "PaniState",
+    "TaskMonitor", "ReconnectionHandler", "MultiTaskController",
+    "Pathfinder", "register_common_paths"
 ]
