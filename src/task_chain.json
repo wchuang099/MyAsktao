@@ -1,32 +1,22 @@
 {
   "window_1": {
-    "task_flow": [
-      "login",
-      "shimen"
-    ]
+    "vnc_port": "102",
+    "account": "123"
   },
   "window_2": {
-    "task_flow": [
-      "login",
-      "shimen"
-    ]
+    "vnc_port": "103",
+    "account": ""
   },
   "window_3": {
-    "task_flow": [
-      "login",
-      "shimen"
-    ]
+    "vnc_port": "104",
+    "account": ""
   },
   "window_4": {
-    "task_flow": [
-      "login",
-      "shimen"
-    ]
+    "vnc_port": "105",
+    "account": ""
   },
   "window_5": {
-    "task_flow": [
-      "login",
-      "shimen"
-    ]
+    "vnc_port": "106",
+    "account": ""
   }
 }

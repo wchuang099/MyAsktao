@@ -5,56 +5,52 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="66c05f5e-3480-4516-bf5a-fc99aa81f1d5" name="更改" comment="init:初始化">
-      <change afterPath="$PROJECT_DIR$/config/config.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/config.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/paths.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/unify.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/yjs.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/worker.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/MyAsktao.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/06-07-08-09.鼠标漂移边界以及打图任务流程梳理 店小二查找放在第27 28课.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/1.图色脚本架构设计.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/10.强盗任务、贼王任务读取(1).md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/10.强盗任务、贼王任务读取(2).md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/11.跨地图自动寻路.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/12.飞行旗.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/13.动态NPC（车夫、驿站老板）点击、对话框自动化以及新区遮挡判定的高级实操技巧.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/14.地图坐标换算.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/15.强盗（NPC）被遮挡或重叠时的进阶处理逻辑.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/16.贼王处理机制.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/17-18-19-20-21.贼王进阶处理与 OCR 验证实战.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.工程架构、UI 布局与多线程配置隔离.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/23-24-25.自动登录.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/26.任务超时监控与游戏掉线自动重连.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/27.自动换号,恢复用户设置新的任务链.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/28.整体打图流程回顾讲解,解决新区卡顿处理同时不影响老区的流畅度.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/29-30-31.课 押镖难点解析.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3.大漠插件开发实战：环境部署与找图指令详解.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/32-33 自动仓库转图，宝石商人取图直接转图.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/34.卡密系统搭建验证.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/4.大漠插件开发实战：免注册调用、坐标系原理以及后台绑定.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/5.易语言多线程控制与大漠插件鼠标漂移优化方案.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/全局变量.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/总流程梳理.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/程序集_任务执行分配.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/程序集_地图.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/程序集_常用功能.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/程序集_打图.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/程序集_插件注册.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/程序集_插件识别.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/程序集_脚本主程序.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/程序集_飞行.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/程序集_鼠标移动.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/窗口程序集_启动窗口.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/窗口程序集_窗口_功能设置.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/自定义数据类型.md" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fonts/NPC字库.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fonts/任务字库.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fonts/回合字库.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fonts/地图字库.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fonts/坐标字库.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fonts/对话字库.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fonts/战斗字库.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/fonts/通用字库.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/icons/alien.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/plugins/msdk.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tasks/元宝关.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tasks/元宝开.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tasks/女娲石.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tasks/女木.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tasks/如意开关/step1_界面特征.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tasks/如意开关/step2_如意关特征.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tasks/如意开关/step2_如意开特征.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tasks/如意开关/step3_关闭界面_11_14.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tasks/客户端图标.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tasks/小地图特征.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tasks/战斗状态.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tasks/男木.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tasks/福利中心/step1_福利中心.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tasks/福利中心/step1_福利中心_21_14.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tasks/福利中心/step2_每日必领.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tasks/福利中心/step2_每日必领_63_19.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tasks/福利中心/step3_一键领取.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tasks/福利中心/step3_一键领取_55_16.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tasks/福利中心/step4_关闭界面_13_16.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tasks/窗口特征/多窗口特征.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tasks/窗口特征/窗口激活特征.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tasks/第1回合.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tasks/系统邮件/邮件20_21.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tasks/自动战斗/step1_自动战斗特征.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tasks/自动战斗/step2_取消自动战斗_23_23.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tasks/行囊1关.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/tasks/行囊2关.bmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/yolo/best.onnx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/yolo/best1.onnx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/yolo/test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/yolo/test1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/yolo/wendao.onnx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/task_chain.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/task_chain.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/unify.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/unify.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,20 +87,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python.gui.executor": "Run",
-    "Python.paths.executor": "Run",
-    "Python.test.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/PyProject/MyAsktao",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.gui.executor&quot;: &quot;Run&quot;,
+    &quot;Python.paths.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/PyProject/MyAsktao&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\PyProject\MyAsktao" />
@@ -134,7 +130,23 @@
       <option name="project" value="LOCAL" />
       <updated>1773757928227</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="init:初始化">
+      <option name="closed" value="true" />
+      <created>1775105349407</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1775105349407</updated>
+    </task>
+    <task id="LOCAL-00003" summary="init:初始化">
+      <option name="closed" value="true" />
+      <created>1775105384126</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1775105384126</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

@@ -193,37 +193,12 @@ class MainWindow(QMainWindow):
 
         menu = QMenu()
 
-        # 执行任务链子菜单
-        chain_menu = menu.addMenu("执行任务链")
-
-        # 预设任务链
-        chain_menu.addAction("师门 → 帮派 → 副本",
-                             lambda: self.run_chain(row, ["login", "shimen", "bangpai", "fuben"]))
-        chain_menu.addAction("师门 → 帮派",
-                             lambda: self.run_chain(row, ["login", "shimen", "bangpai"]))
-        chain_menu.addAction("仅师门",
-                             lambda: self.run_chain(row, ["login", "shimen"]))
-        chain_menu.addAction("仅帮派",
-                             lambda: self.run_chain(row, ["login", "bangpai"]))
-        chain_menu.addAction("仅副本",
-                             lambda: self.run_chain(row, ["login", "fuben"]))
-
-        menu.addSeparator()
-
         # 单任务执行
         single_menu = menu.addMenu("执行单个任务")
         single_menu.addAction("登录", lambda: self.run_chain(row, ["login"]))
         single_menu.addAction("师门任务", lambda: self.run_chain(row, ["shimen"]))
         single_menu.addAction("帮派任务", lambda: self.run_chain(row, ["bangpai"]))
         single_menu.addAction("副本任务", lambda: self.run_chain(row, ["fuben"]))
-
-        menu.addSeparator()
-
-        # 全部窗口
-        all_menu = menu.addMenu("全部窗口")
-        all_menu.addAction("全部启动师门", lambda: self.run_all(["login", "shimen"]))
-        all_menu.addAction("全部启动帮派", lambda: self.run_all(["login", "bangpai"]))
-        all_menu.addAction("全部停止", self.stop_all_tasks)
 
         menu.addSeparator()
 

@@ -1,10 +1,10 @@
 #utils/unify.py
 import time
-from utils import yjs
-from utils.yjs import code_dict
+from src.utils import yjs
+from src.utils.yjs import code_dict
 from collections import deque
 import PyUnifyEN
-from utils.paths import assets_root
+from src.utils.paths import assets_root
 
 class UNIFY:
     """
