@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="66c05f5e-3480-4516-bf5a-fc99aa81f1d5" name="更改" comment="init:初始化">
+      <change afterPath="$PROJECT_DIR$/config/config.ini" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gui.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/config.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/paths.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/unify.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/yjs.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/worker.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/MyAsktao.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/06-07-08-09.鼠标漂移边界以及打图任务流程梳理 店小二查找放在第27 28课.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/1.图色脚本架构设计.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/10.强盗任务、贼王任务读取(1).md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/10.强盗任务、贼王任务读取(2).md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/11.跨地图自动寻路.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/12.飞行旗.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/13.动态NPC（车夫、驿站老板）点击、对话框自动化以及新区遮挡判定的高级实操技巧.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/14.地图坐标换算.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/15.强盗（NPC）被遮挡或重叠时的进阶处理逻辑.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/16.贼王处理机制.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/17-18-19-20-21.贼王进阶处理与 OCR 验证实战.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2.工程架构、UI 布局与多线程配置隔离.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/23-24-25.自动登录.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/26.任务超时监控与游戏掉线自动重连.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/27.自动换号,恢复用户设置新的任务链.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/28.整体打图流程回顾讲解,解决新区卡顿处理同时不影响老区的流畅度.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/29-30-31.课 押镖难点解析.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/3.大漠插件开发实战：环境部署与找图指令详解.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/32-33 自动仓库转图，宝石商人取图直接转图.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/34.卡密系统搭建验证.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/4.大漠插件开发实战：免注册调用、坐标系原理以及后台绑定.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/5.易语言多线程控制与大漠插件鼠标漂移优化方案.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/全局变量.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/总流程梳理.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/程序集_任务执行分配.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/程序集_地图.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/程序集_常用功能.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/程序集_打图.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/程序集_插件注册.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/程序集_插件识别.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/程序集_脚本主程序.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/程序集_飞行.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/程序集_鼠标移动.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/窗口程序集_启动窗口.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/窗口程序集_窗口_功能设置.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/自定义数据类型.md" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;wchuang099&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/wchuang099/MyAsktao.git&quot;,
+    &quot;accountId&quot;: &quot;6d12ab6a-9cbb-4a80-b917-ec8ff0e2557a&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="3B4oqh9zPUJlt75D9a6IiXZbYVm" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.gui.executor": "Run",
+    "Python.paths.executor": "Run",
+    "Python.test.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "D:/PyProject/MyAsktao",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\PyProject\MyAsktao" />
+      <recent name="D:\PyProject\MyAsktao\src" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-164cda30dcd9-0af03a5fa574-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-252.26830.99" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="66c05f5e-3480-4516-bf5a-fc99aa81f1d5" name="更改" comment="" />
+      <created>1773757898163</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1773757898163</updated>
+    </task>
+    <task id="LOCAL-00001" summary="init:初始化">
+      <option name="closed" value="true" />
+      <created>1773757928227</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1773757928227</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="init:初始化" />
+    <option name="LAST_COMMIT_MESSAGE" value="init:初始化" />
+  </component>
+</project>

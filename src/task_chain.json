@@ -1,0 +1,32 @@
+{
+  "window_1": {
+    "task_flow": [
+      "login",
+      "shimen"
+    ]
+  },
+  "window_2": {
+    "task_flow": [
+      "login",
+      "shimen"
+    ]
+  },
+  "window_3": {
+    "task_flow": [
+      "login",
+      "shimen"
+    ]
+  },
+  "window_4": {
+    "task_flow": [
+      "login",
+      "shimen"
+    ]
+  },
+  "window_5": {
+    "task_flow": [
+      "login",
+      "shimen"
+    ]
+  }
+}
